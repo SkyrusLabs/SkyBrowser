@@ -12,6 +12,9 @@ Para os gamers, o SkyBrowser oferece uma experiência de navegação personaliza
 Seja explorando novos reinos virtuais ou contribuindo para a expansão da Skynet, o SkyBrowser é a escolha definitiva para aqueles que buscam uma conexão aprimorada com o futuro da tecnologia e dos jogos. Prepare-se para mergulhar em uma experiência única, onde a Skynet e a paixão pelos jogos se encontram, tudo através da inovação proporcionada pelo SkyBrowser.
 </div>
 
+# Task atual: Sidebar
+acesse o [figma do projeto](https://www.figma.com/file/NrLRTuLsUgukNcPihae8eP/Arc-browser-interface-(Community)?type=design&node-id=2-1319&mode=design&t=6AnKmGCNJHv7b9ol-0)
+
 ## Recommended IDE Setup
 
 - [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [PNPM](https://pnpm.io/pt/)

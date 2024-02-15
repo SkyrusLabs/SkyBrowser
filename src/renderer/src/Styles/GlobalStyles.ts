@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import waves from '../assets/wavy-lines.svg'
+import waves from '../assets/wavy-lines.svg';
+import bg from '../assets/Backgrounds/NoiseTexture/BG_SkyrusPortal.png';
 
 export default createGlobalStyle`
   body {
@@ -7,8 +8,16 @@ export default createGlobalStyle`
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: url("${waves}") no-repeat center center fixed;
+    background: url("${bg}") no-repeat center center fixed;
     background-color: #242424;
+    background-size: cover;
+    user-select: none;
+    margin: 0;
+  }
+
+  #root {
+    background: url("${waves}") no-repeat center center fixed;
+
     background-size: cover;
     user-select: none;
   }

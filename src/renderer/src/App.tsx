@@ -10,7 +10,7 @@ function App(): JSX.Element {
       <Layout />
       <GlobalStyles />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
