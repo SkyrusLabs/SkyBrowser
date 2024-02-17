@@ -25,9 +25,12 @@
     "@electron-toolkit/preload": "^3.0.0",
     "@electron-toolkit/utils": "^3.0.0",
     "axios": "^1.6.7",
+    "electron-is": "^3.0.0",
     "electron-updater": "^6.1.7",
+    "react-player": "^2.14.1",
     "react-router-dom": "^6.22.0",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "styled-icons": "^10.47.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^2.0.0",
@@ -42,7 +45,6 @@
     "electron-vite": "^2.0.0",
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
-    "prettier": "^3.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.3.3",
