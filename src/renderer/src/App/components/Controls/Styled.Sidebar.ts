@@ -7,6 +7,7 @@ import { ArrowBackIos } from '@styled-icons/material-rounded/ArrowBackIos';
 import { ArrowForwardIos } from '@styled-icons/material-rounded/';
 import { ArrowCounterclockwise } from '@styled-icons/bootstrap/ArrowCounterclockwise';
 import { Home } from '@styled-icons/entypo/Home';
+import { ShieldKeyhole } from '@styled-icons/fluentui-system-filled/ShieldKeyhole';
 
 export enum windowAction {
   close,
@@ -117,10 +118,10 @@ export const WActions = styled.div`
   display: flex;
 `;
 
-export const SideBarIcon = styled(ShowSidebar)`
+export const SideBarIcon: any = styled(ShowSidebar)`
   width: 24px;
   height: 18px;
-  align-itens: top;
+
   color: gray;
   transition: color 0.2s;
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
@@ -131,7 +132,7 @@ export const SideBarIcon = styled(ShowSidebar)`
   cursor: pointer;
 `;
 
-export const ArrowBackIcon = styled(ArrowBackIos)`
+export const ArrowBackIcon: any = styled(ArrowBackIos)`
   width: 24px;
   height: 18px;
   color: gray;
@@ -142,7 +143,7 @@ export const ArrowBackIcon = styled(ArrowBackIos)`
   cursor: pointer;
 `;
 
-export const ArrowNextIcon = styled(ArrowForwardIos)`
+export const ArrowNextIcon: any = styled(ArrowForwardIos)`
   width: 24px;
   height: 18px;
   color: gray;
@@ -152,7 +153,7 @@ export const ArrowNextIcon = styled(ArrowForwardIos)`
   cursor: pointer;
 `;
 
-export const RefreshIcon = styled(ArrowCounterclockwise)`
+export const RefreshIcon: any = styled(ArrowCounterclockwise)`
   width: 24px;
   height: 18px;
   color: gray;
@@ -162,7 +163,7 @@ export const RefreshIcon = styled(ArrowCounterclockwise)`
   cursor: pointer;
 `;
 
-export const HomeIcon = styled(Home)`
+export const HomeIcon: any = styled(Home)`
   width: 24px;
   height: 18px;
   color: gray;
@@ -171,3 +172,34 @@ export const HomeIcon = styled(Home)`
   -webkit-app-region: no-drag;
   cursor: pointer;
 `;
+
+export const SearchBarContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 20px;
+  padding: 10px;
+  margin-top: 12px;
+  margin-left: 5px;
+  border-radius: 12px;
+  background: #8080808c;
+`;
+
+export const SearchInput = styled.input`
+  width: 90%;
+  height: 90%;
+
+  background: transparent;
+  border: none;
+  color: #fff;
+`;
+
+export const SearchIcon: any = styled(ShieldKeyhole)`
+  width: 24px;
+  height: 18px;
+  color: gray;
+  transition: color 0.2s;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+  margin-right: 8px; /* Ajuste a margem conforme necessário */
+`;
+

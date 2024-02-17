@@ -12,6 +12,9 @@ import {
   ArrowNextIcon,
   RefreshIcon,
   HomeIcon,
+  SearchIcon,
+  SearchBarContainer,
+  SearchInput,
 } from "./Styled.Sidebar";
 
 export const SidebarComponent: React.FC = () => {
@@ -75,6 +78,11 @@ export const SidebarComponent: React.FC = () => {
           </WActions>
         </Navigation>
       </NavigationContainer>
+
+      <SearchBarContainer>
+        <SearchIcon />
+        <SearchInput type="search" placeholder="Search" />
+      </SearchBarContainer>
     </Sidebar>
   );
 };

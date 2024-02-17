@@ -1,7 +1,47 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron';
+import { app, shell, BrowserWindow, ipcMain, autoUpdater } from 'electron';
 import { join } from 'path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import icon from '../../resources/icon.png?asset';
+import { dialog } from 'electron/main';
+
+function setupUpdate() {
+  const FeedUrl: any = 'https://update.electronjs.org/Tdroid20/SkyBrowser/' + process.platform + '-' + process.arch + '/' + app.getVersion();
+
+  try {
+    console.log(FeedUrl);
+    autoUpdater.setFeedURL(FeedUrl)
+
+    autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName, releaseDate, updateURL) => {
+
+      const dialogOpts: any = {
+        type: 'info',
+        buttons: ['Reiniciar Agora', 'Reiniciar Depois'],
+        title: 'Atualização Automática',
+        message: process.platform === 'win32' ? releaseNotes : releaseName,
+        detail: 'Uma nova versão do Aplicativo foi Instalada. Reinicie o Aplicativo para iniciar a nova versão'
+      };
+
+      dialog.showMessageBox(dialogOpts).then(({ response }) => {
+
+        if (response === 0) {
+          autoUpdater.quitAndInstall();
+        }
+
+      })
+    });
+    autoUpdater.checkForUpdates()
+
+    setInterval(() => {
+
+      autoUpdater.checkForUpdates()
+
+    }, (1 * 60 * 60 * 1000))
+
+  } catch (err) {
+    console.log(err)
+  }
+
+}
 
 function createWindow(): void {
   // Create the browser window.
@@ -81,6 +121,10 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+});
+
+app.on('ready', () => {
+  setupUpdate();
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common

@@ -33,6 +33,7 @@ linux:
     - AppImage
     - snap
     - deb
+    - x64
   maintainer: skyrushub.xyz
   category: Utility
 appImage:
