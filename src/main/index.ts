@@ -3,6 +3,9 @@ import { join } from 'path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import icon from '../../resources/icon.png?asset';
 import { dialog } from 'electron/main';
+import { config } from 'dotenv';
+import { Web4Connect } from '../Api/skynetAPI.service'
+config();
 
 function setupUpdate() {
   const FeedUrl: any = 'https://update.electronjs.org/Tdroid20/SkyBrowser/' + process.platform + '-' + process.arch + '/' + app.getVersion();
@@ -97,6 +100,35 @@ function createWindow(): void {
 
   ipcMain.on('skynet://application:browser/funcions/fullScreen', () => {
     mainWindow.setFullScreen(!mainWindow.isFullScreen());
+  });
+
+  ipcMain.on('skynet://application:browser/rpc&send/rpcInfo', (event, params, code) => {
+    // Faça algo com os parâmetros recebidos
+    console.log(params, code);
+    mainWindow.blurWebView();
+    let data = {
+      "skynetConnect": {
+        "rpc-IPcDesk": params,
+        "rpc-response": {
+          mainWindow
+        },
+        "rpc-ipcDesk.events:": {
+          event
+        }
+      }
+    };
+    // Envie para a API
+    let api = new Web4Connect();
+    api.evalCode(code, process.env.userAcess).then(async (x) => {
+      console.dir("dirEval: " + x);
+    });
+  });
+
+  ipcMain.on('skynet://skybrowser:rpc.send/funcions/activeProtection?option=:params', (params, test) => {
+    console.log("rpc-IPcDeskParams: " + params);
+    console.log("rpc-IPcDeskParams: " + test);
+    console.log("rpc-response: \n" + {mainWindow: {mainWindow}})
+    mainWindow.blurWebView();
   });
 }
 

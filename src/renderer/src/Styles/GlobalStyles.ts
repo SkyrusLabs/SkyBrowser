@@ -3,6 +3,7 @@ import waves from '../assets/wavy-lines.svg';
 import bg from '../assets/Backgrounds/NoiseTexture/BG_SkyrusPortal.png';
 
 export default createGlobalStyle`
+
   .webTitle {
     font-family: 'Menlo', 'Lucida Console', monospace;
     color: #fff;
@@ -86,3 +87,5 @@ export default createGlobalStyle`
     --branding: #FFFFFF;
   }
 `;
+
+

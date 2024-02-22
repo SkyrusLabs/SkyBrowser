@@ -192,14 +192,39 @@ export const SearchInput = styled.input`
   background: transparent;
   border: none;
   color: #fff;
+
+  font-family: 'SF Pro Display', sans-serif;
+  font-weight: 900;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const SearchIconConmponent = styled.a`
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  :hover {
+    color: #fff;
+  }
 `;
 
 export const SearchIcon: any = styled(ShieldKeyhole)`
   width: 24px;
   height: 18px;
   color: gray;
-  transition: color 0.2s;
+  transition: color .4s;
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
-  margin-right: 8px; /* Ajuste a margem conforme necessário */
+  margin-right: 8px;
+
+  &.active {
+    color: #35ff00;
+  }
+
+  &.noSSL {
+    color: #ff6d6d;
+  }
 `;
 

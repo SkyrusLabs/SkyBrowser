@@ -1,10 +1,11 @@
 import GlobalStyles from '@renderer/Styles/GlobalStyles';
 import React from 'react';
+import { WebLandingPage } from './LandingPage/web.landingPage';
 
 const WebApp: React.FC = () => {
   return (
     <div>
-      <h1 className="webTitle">WebView</h1>
+      <WebLandingPage />
       <GlobalStyles />
     </div>
   );
