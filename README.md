@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./resources/icon.png" align="center" width="90px">
+  <img src="https://cdn.discordapp.com/attachments/1142929964665155738/1210585927815143476/SkyBrowser.png?ex=65eb1900&is=65d8a400&hm=ce805d6bb3fcc18e06dd9d3028478e9f81212cf2715e9df309dc0a14e08c1ba8&" align="center" width="90px">
   <h3>skybrowser</h3>
   <p>Powered By Skyrus LTDA</p>
 
