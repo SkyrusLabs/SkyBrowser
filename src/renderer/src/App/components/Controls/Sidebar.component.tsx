@@ -92,6 +92,7 @@ export const SidebarComponent: React.FC = () => {
       }, 1000);
     } else if (searchValue === "skynet://application:browser/rpc&send/rpcInfo") {
       updateProtection(true);
+      window.electron.ipcRenderer.send('skynet://skybrowser:rpc.send/funcions/activeProtection?option=');
     }
 
     sslCheck()

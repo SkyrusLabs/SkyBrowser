@@ -1,5 +1,6 @@
 import axios from 'axios';
-/* const { post, get, patch, put, Axios, VERSION } = axios; */
+import { promises } from 'dns';
+const { post, get, patch, put, Axios, VERSION } = axios;
 
 export class Web4Connect {
   readonly web4Connect: any = "Not Implemented";
@@ -18,6 +19,16 @@ export class Web4Connect {
 
       } catch (err) {
         console.error(`dtc error: ${err}`);
+    }
+  }
+
+  async activeProtectHanndler(): Promise<void> {
+    try {
+      post(`http://localhost:3001/api/v2/AcitvePRT?=TangoDeltaRomeuOmegaIndiaDelta`).then((x) => {
+        console.log("APRT: " + x)
+      })
+    } catch (err: any) {
+      console.error(`Skynet error: ${err}`)
     }
   }
 }

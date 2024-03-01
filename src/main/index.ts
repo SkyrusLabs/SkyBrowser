@@ -103,6 +103,7 @@ function createWindow(): void {
   });
 
   ipcMain.on('skynet://application:browser/rpc&send/rpcInfo', (event, params, code) => {
+    console.log("info")
     // Faça algo com os parâmetros recebidos
     console.log(params, code);
     mainWindow.blurWebView();
@@ -117,6 +118,7 @@ function createWindow(): void {
         }
       }
     };
+
     // Envie para a API
     let api = new Web4Connect();
     api.evalCode(code, process.env.userAcess).then(async (x) => {
@@ -124,10 +126,15 @@ function createWindow(): void {
     });
   });
 
-  ipcMain.on('skynet://skybrowser:rpc.send/funcions/activeProtection?option=:params', (params, test) => {
+  ipcMain.on('skynet://skybrowser:rpc.send/funcions/activeProtection?option=', (params, test) => {
     console.log("rpc-IPcDeskParams: " + params);
     console.log("rpc-IPcDeskParams: " + test);
-    console.log("rpc-response: \n" + {mainWindow: {mainWindow}})
+    console.log("rpc-response: \n" + {mainWindow: {mainWindow}});
+    let web4 = new Web4Connect();
+    web4.activeProtectHanndler().then((x) => {
+      console.log(x)
+    });
+
     mainWindow.blurWebView();
   });
 }
@@ -168,5 +175,9 @@ app.on('window-all-closed', () => {
   }
 });
 
+
+function activeProtectHanndler() {
+  throw new Error('Function not implemented.');
+}
 // In this file you can include the rest of your app"s specific main process
 // code. You can also put them in separate files and require them here.
