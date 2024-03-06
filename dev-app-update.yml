@@ -1,3 +1,3 @@
-provider: generic
+provider: "Skyrus Labz"
 url: https://github.com/SkyrusLabs/SkyBrowser/releases
 updaterCacheDirName: skybrowser-updater

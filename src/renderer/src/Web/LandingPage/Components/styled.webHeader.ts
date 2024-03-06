@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 export const WebStyleHeader = styled.div`
   width: 90%;
@@ -30,7 +29,7 @@ export const WebStyleHBrand = styled.img`
 `;
 
 export const WebStyleHBrandTypography = styled.p`
-font-family: 'SF Pro Display', sans-serif;
+  font-family: "SF Pro Display", sans-serif;
   font-weight: 900;
   font-size: 16px;
   display: flex;
@@ -62,12 +61,12 @@ export const WebStyleH_li = styled.li`
 export const WebStyleH_a = styled.a`
   text-decoration: none;
   color: #fff;
-  font-family: 'Menlo', 'Lucida Console', monospace;
+  font-family: "Menlo", "Lucida Console", monospace;
   font-weight: 400;
 `;
 
 export const SKDS_Strong = styled.p`
-  font-family: '28 Days Later', sans-serif;
+  font-family: "28 Days Later", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 26px;

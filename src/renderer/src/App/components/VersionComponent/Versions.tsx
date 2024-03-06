@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import application from '../../../../../../package.json';
+import { useState } from "react";
+import application from "../../../../../../package.json";
 
 function Versions(): JSX.Element {
   const [versions] = useState(window.electron.process.versions);

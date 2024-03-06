@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import waves from '../assets/wavy-lines.svg';
-import bg from '../assets/Backgrounds/NoiseTexture/BG_SkyrusPortal.png';
+import { createGlobalStyle } from "styled-components";
+import waves from "../assets/wavy-lines.svg";
+import bg from "../assets/Backgrounds/NoiseTexture/BG_SkyrusPortal.png";
 
 export default createGlobalStyle`
   .webTitle {

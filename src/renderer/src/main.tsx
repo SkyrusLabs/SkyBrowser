@@ -14,7 +14,11 @@ const showLaunchScreen = true;
 const renderApp = () => {
   ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
-      <BrowserRouter>{isElectron ? <App /> : <WebApp />}</BrowserRouter>
+      <BrowserRouter>
+        {isElectron ?
+          <App />
+        : <WebApp />}
+      </BrowserRouter>
     </React.StrictMode>,
   );
 };

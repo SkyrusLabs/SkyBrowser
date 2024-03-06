@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import styled from 'styled-components';
-import { ShowSidebar as ShowSidebar } from 'styled-icons/zondicons';
-import { ArrowBackIos } from '@styled-icons/material-rounded/ArrowBackIos';
-import { ArrowForwardIos } from '@styled-icons/material-rounded/';
-import { ArrowCounterclockwise } from '@styled-icons/bootstrap/ArrowCounterclockwise';
-import { Home } from '@styled-icons/entypo/Home';
-import { ShieldKeyhole } from '@styled-icons/fluentui-system-filled/ShieldKeyhole';
+import styled from "styled-components";
+import { ShowSidebar as ShowSidebar } from "styled-icons/zondicons";
+import { ArrowBackIos } from "@styled-icons/material-rounded/ArrowBackIos";
+import { ArrowForwardIos } from "@styled-icons/material-rounded/";
+import { ArrowCounterclockwise } from "@styled-icons/bootstrap/ArrowCounterclockwise";
+import { Home } from "@styled-icons/entypo/Home";
+import { ShieldKeyhole } from "@styled-icons/fluentui-system-filled/ShieldKeyhole";
 
 export enum windowAction {
   close,
@@ -193,7 +193,7 @@ export const SearchInput = styled.input`
   border: none;
   color: #fff;
 
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: "SF Pro Display", sans-serif;
   font-weight: 900;
 
   &:focus {
@@ -215,7 +215,7 @@ export const SearchIcon: any = styled(ShieldKeyhole)`
   width: 24px;
   height: 18px;
   color: gray;
-  transition: color .4s;
+  transition: color 0.4s;
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
   margin-right: 8px;
 
@@ -227,4 +227,3 @@ export const SearchIcon: any = styled(ShieldKeyhole)`
     color: #ff6d6d;
   }
 `;
-

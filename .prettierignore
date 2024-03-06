@@ -1,3 +1,18 @@
+# Folder
+build/
+node_modules/
+dist/
+out/
+
+# Files
+lerna.json
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Aditionals
+.github/actions/
+
 # Logs
 logs
 *.log

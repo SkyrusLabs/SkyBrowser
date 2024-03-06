@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   WebStyleHBrand,
   WebStyleHBrandContainer,
@@ -8,16 +8,17 @@ import {
   WebStyleH_ActionsList,
   WebStyleH_ul,
   WebStyleH_li,
-  WebStyleH_a
-} from './styled.webHeader';
-import skBrowserIcon from '../../../../SkyBrowser.png';
+  WebStyleH_a,
+} from "./styled.webHeader";
+import skBrowserIcon from "../../../../SkyBrowser.png";
 
 export const WebHeaderComponent: React.FC = () => {
   return (
     <WebStyleHeader>
       <WebStyleHBrandContainer>
         <WebStyleHBrand src={skBrowserIcon} />
-        <WebStyleHBrandTypography>Sky
+        <WebStyleHBrandTypography>
+          Sky
           <SKDS_Strong>Browser</SKDS_Strong>
         </WebStyleHBrandTypography>
       </WebStyleHBrandContainer>
@@ -25,34 +26,51 @@ export const WebHeaderComponent: React.FC = () => {
       <WebStyleH_ActionsList>
         <WebStyleH_ul>
           <WebStyleH_li>
-            <WebStyleH_a href='#' className=''>Versions</WebStyleH_a>
-          </WebStyleH_li>
-          <WebStyleH_li>
-            <WebStyleH_a href=''
-            className='disable'
-            onDragStart={(e) => e.preventDefault()}
-            onClick={(e) => e.preventDefault()}>Donwload</WebStyleH_a>
+            <WebStyleH_a href="#" className="">
+              Versions
+            </WebStyleH_a>
           </WebStyleH_li>
           <WebStyleH_li>
             <WebStyleH_a
-            href=''
-            className='disable'
-            onDragStart={(e) => e.preventDefault()}
-            onClick={(e) => e.preventDefault()}>About</WebStyleH_a>
+              href=""
+              className="disable"
+              onDragStart={e => e.preventDefault()}
+              onClick={e => e.preventDefault()}
+            >
+              Donwload
+            </WebStyleH_a>
           </WebStyleH_li>
           <WebStyleH_li>
-            <WebStyleH_a href=''
-            className='disable'
-            onDragStart={(e) => e.preventDefault()}
-            onClick={(e) => e.preventDefault()}>Browser</WebStyleH_a>
+            <WebStyleH_a
+              href=""
+              className="disable"
+              onDragStart={e => e.preventDefault()}
+              onClick={e => e.preventDefault()}
+            >
+              About
+            </WebStyleH_a>
           </WebStyleH_li>
           <WebStyleH_li>
-            <WebStyleH_a href='#' className='disable' onDragStart={(e) => e.preventDefault()}>Contributors</WebStyleH_a>
+            <WebStyleH_a
+              href=""
+              className="disable"
+              onDragStart={e => e.preventDefault()}
+              onClick={e => e.preventDefault()}
+            >
+              Browser
+            </WebStyleH_a>
+          </WebStyleH_li>
+          <WebStyleH_li>
+            <WebStyleH_a
+              href="#"
+              className="disable"
+              onDragStart={e => e.preventDefault()}
+            >
+              Contributors
+            </WebStyleH_a>
           </WebStyleH_li>
         </WebStyleH_ul>
       </WebStyleH_ActionsList>
-
-
     </WebStyleHeader>
-  )
-}
+  );
+};

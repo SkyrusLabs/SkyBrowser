@@ -1,9 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 // SB - Side Bar & Controls
 // CTV - Content View
 //
-
 
 export const Grid = styled.div`
   display: grid;
@@ -12,9 +11,9 @@ export const Grid = styled.div`
   grid-template-rows: 46px auto 52px;
 
   grid-template-areas:
-    'SB SB SB SB SB'
-    'SB CTV CTV CTV'
-    'SB CTV CTV CTV';
+    "SB SB SB SB SB"
+    "SB CTV CTV CTV"
+    "SB CTV CTV CTV";
 
   height: 100vh;
 `;

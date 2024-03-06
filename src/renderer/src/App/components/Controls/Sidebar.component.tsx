@@ -21,16 +21,22 @@ import {
 export const SidebarComponent: React.FC = () => {
   function requestClose(): void {
     // eslint-disable-next-line prettier/prettier
-    window.electron.ipcRenderer.send('skynet://application:browser/funcions/closeWindow');
+    window.electron.ipcRenderer.send(
+      "skynet://application:browser/funcions/closeWindow",
+    );
   }
 
   function requestMaxWindow(): void {
     // eslint-disable-next-line prettier/prettier
-    window.electron.ipcRenderer.send('skynet://application:browser/funcions/maxWindow');
+    window.electron.ipcRenderer.send(
+      "skynet://application:browser/funcions/maxWindow",
+    );
   }
   function requestMinWindow(): void {
     // eslint-disable-next-line prettier/prettier
-    window.electron.ipcRenderer.send('skynet://application:browser/funcions/minWindow');
+    window.electron.ipcRenderer.send(
+      "skynet://application:browser/funcions/minWindow",
+    );
   }
 
   function reloadSSLCheck(): void {
@@ -39,19 +45,26 @@ export const SidebarComponent: React.FC = () => {
   }
 
   function sslCheck(): void {
-    if (searchValue.startsWith("http://") || searchValue.startsWith("skynetUnp://")) {
-      window.electron.ipcRenderer.send('skynet://application:browser/funcions/sslInfo');
-      console.log("ativou!")
+    if (
+      searchValue.startsWith("http://") ||
+      searchValue.startsWith("skynetUnp://")
+    ) {
+      window.electron.ipcRenderer.send(
+        "skynet://application:browser/funcions/sslInfo",
+      );
+      console.log("ativou!");
       updateSSLAlert(true);
     } else {
-      console.log("ssl n verificado")
-      reloadSSLCheck()
+      console.log("ssl n verificado");
+      reloadSSLCheck();
     }
   }
 
   function requestFullscreen(): void {
     // eslint-disable-next-line prettier/prettier
-    window.electron.ipcRenderer.send('skynet://application:browser/funcions/fullScreen');
+    window.electron.ipcRenderer.send(
+      "skynet://application:browser/funcions/fullScreen",
+    );
   }
 
   function requestSkynetProtection() {
@@ -60,20 +73,26 @@ export const SidebarComponent: React.FC = () => {
       poweredBy: "Skyrus Labz",
       copyright: "Skyrus LTDA.",
       cpr: "Copyright DI",
-      connectRequest: 'skynetUnp://rede:infraNet.tdroid/connect?request="Read.Wright.Search.connect.admin4.browser"?auth=skybrowser;',
-      connectData: 'skynet://rede:infraNet.tdroid/connect?request="Read.Wright.Search.connect.admin4.browser"?auth=skybrowser;'
-    }
+      connectRequest:
+        'skynetUnp://rede:infraNet.tdroid/connect?request="Read.Wright.Search.connect.admin4.browser"?auth=skybrowser;',
+      connectData:
+        'skynet://rede:infraNet.tdroid/connect?request="Read.Wright.Search.connect.admin4.browser"?auth=skybrowser;',
+    };
 
-    let params = {
+    const params = {
       msg: "This is Skynet",
       code: "9B2",
       statusCode: "200",
       statusMessage: "OK!",
-      response: skynetPortal
-    }
-    let code = "console.log(\"finalmente \")";
+      response: skynetPortal,
+    };
+    const code = 'console.log("finalmente ")';
 
-    window.electron.ipcRenderer.send('skynet://application:browser/rpc&send/rpcInfo', params, code);
+    window.electron.ipcRenderer.send(
+      "skynet://application:browser/rpc&send/rpcInfo",
+      params,
+      code,
+    );
   }
 
   const [searchValue, updateSValue] = useState("");
@@ -84,19 +103,32 @@ export const SidebarComponent: React.FC = () => {
   useEffect(() => {
     if (searchValue === "/activePRT") {
       updateSValue("skynet://application:browser/rpc&send/rpcInfo");
-      window.electron.ipcRenderer.send('skynet://skybrowser:rpc.send/funcions/activeProtection?option=', 'opa');
-
+      window.electron.ipcRenderer.send(
+        "skynet://skybrowser:rpc.send/funcions/activeProtection?option=",
+        "opa",
+      );
 
       setTimeout(() => {
         alert("Enviando solicitação...");
       }, 1000);
-    } else if (searchValue === "skynet://application:browser/rpc&send/rpcInfo") {
+    } else if (
+      searchValue === "skynet://application:browser/rpc&send/rpcInfo"
+    ) {
       updateProtection(true);
-      window.electron.ipcRenderer.send('skynet://skybrowser:rpc.send/funcions/activeProtection?option=', 'test');
+      window.electron.ipcRenderer.send(
+        "skynet://skybrowser:rpc.send/funcions/activeProtection?option=",
+        "test",
+      );
     }
 
-    sslCheck()
-  }, [searchValue, updateSValue, updateProtection, updateSSLVerification, updateSSLAlert]);
+    sslCheck();
+  }, [
+    searchValue,
+    updateSValue,
+    updateProtection,
+    updateSSLVerification,
+    updateSSLAlert,
+  ]);
 
   return (
     <Sidebar>
@@ -104,19 +136,19 @@ export const SidebarComponent: React.FC = () => {
         <Navigation>
           <WindowsActionsContainer>
             <WindowActionControl
-              className='close'
+              className="close"
               onClick={() => requestClose()}
             />
             <WindowActionControl
-              className='max'
+              className="max"
               onClick={() => requestMaxWindow()}
             />
             <WindowActionControl
-              className='ultra'
+              className="ultra"
               onClick={() => requestFullscreen()}
             />
             <WindowActionControl
-              className='min'
+              className="min"
               onClick={() => requestMinWindow()}
             />
           </WindowsActionsContainer>
@@ -141,12 +173,13 @@ export const SidebarComponent: React.FC = () => {
       </NavigationContainer>
 
       <SearchBarContainer>
-        <SearchIconConmponent onClick={async () => {
-          console.log("okSkynetON")
-          let x = requestSkynetProtection();
-          return x
-        }
-        }>
+        <SearchIconConmponent
+          onClick={async () => {
+            console.log("okSkynetON");
+            const x = requestSkynetProtection();
+            return x;
+          }}
+        >
           <SearchIcon
             className={
               (isProtected ? "active" : "") +
@@ -154,12 +187,12 @@ export const SidebarComponent: React.FC = () => {
               (hasSSL ? "active" : "")
             }
           />
-        </SearchIconConmponent >
+        </SearchIconConmponent>
         <SearchInput
           type="text"
           placeholder="Search"
           value={searchValue}
-          onChange={(e) => updateSValue(e.target.value)}
+          onChange={e => updateSValue(e.target.value)}
         />
       </SearchBarContainer>
     </Sidebar>
