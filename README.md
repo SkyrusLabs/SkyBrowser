@@ -17,14 +17,19 @@ Seja explorando novos reinos virtuais ou contribuindo para a expansão da Skynet
 
 acesse o [figma do projeto](<https://www.figma.com/file/NrLRTuLsUgukNcPihae8eP/Arc-browser-interface-(Community)?type=design&node-id=2-1319&mode=design&t=6AnKmGCNJHv7b9ol-0>)
 
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [PNPM](https://pnpm.io/pt/)
+## Required Exetension
+- [VSCode](https://code.visualstudio.com/)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [PNPM](https://pnpm.io/pt/)
+- [File Template](https://marketplace.visualstudio.com/items?itemName=RalfZhang.filetemplate)
 
 ## Project Setup
 
-### Install
+## Setup File Config
+[see Config file](./Config/installGuide.md)
 
+### Install
 ```bash
 # PNPM
 $ pnpm install
