@@ -25,7 +25,6 @@ Seja explorando novos reinos virtuais ou contribuindo para a expansão da Skynet
 Adicional: Home Button
 
 # Task Atual: Sidebar
-
 acesse o [figma do projeto](<https://www.figma.com/file/NrLRTuLsUgukNcPihae8eP/Arc-browser-interface-(Community)?type=design&node-id=2-1319&mode=design&t=6AnKmGCNJHv7b9ol-0>)
 
 ## Required Exetension
@@ -73,4 +72,4 @@ $ pnpm build:mac
 $ pnpm build:linux
 ```
 
-In Pre-Alpha
+In Development
