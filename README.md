@@ -13,7 +13,18 @@ Seja explorando novos reinos virtuais ou contribuindo para a expansão da Skynet
 
 </div>
 
-# Task atual: Sidebar
+# Task 22/03/24: Browser, BrowserFunctions, BrowserWith Web4(Skynet) and Web2
+[ ] Browser: Crie o Browser Funcional, ele deve pegar as urls prontas e navegar na internet de fato.
+- Deve ter um Regex para poder indentificar urls sem http ou https
+- como adicional crie um redirecionador de links Web4
+
+[ ] BrowserFunctions: Faça que as funções basicas de browser estejam Funcionais
+- Reload Page Button
+- Next Page Button
+- Previus Page Button
+Adicional: Home Button
+
+# Task Atual: Sidebar
 
 acesse o [figma do projeto](<https://www.figma.com/file/NrLRTuLsUgukNcPihae8eP/Arc-browser-interface-(Community)?type=design&node-id=2-1319&mode=design&t=6AnKmGCNJHv7b9ol-0>)
 
