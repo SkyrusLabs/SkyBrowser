@@ -11,14 +11,26 @@ import {
   ArrowBackIcon,
   ArrowNextIcon,
   RefreshIcon,
-  HomeIcon,
+  /* HomeIcon, */
   SearchIcon,
   SearchBarContainer,
   SearchInput,
   SearchIconConmponent,
 } from "./Styled.Sidebar";
 
+
+
 export const SidebarComponent: React.FC = () => {
+  const ShieldStates = {
+    onFocus: "highlighted",
+    protected: "protected",
+    unsecure: "unsecure",
+    standby: "standby"
+  };
+  const [shieldStyle, setShieldStyle] = useState(ShieldStates.standby);
+  const [shiftPressed, setShiftPressed] = useState(false);
+
+  // ACTIONS
   function requestClose(): void {
     // eslint-disable-next-line prettier/prettier
     window.electron.ipcRenderer.send(
@@ -40,9 +52,20 @@ export const SidebarComponent: React.FC = () => {
   }
 
   function reloadSSLCheck(): void {
-    updateProtection(false);
-    updateSSLAlert(false);
+    setShieldStyle(ShieldStates.standby)
   }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Shift") {
+      setShiftPressed(true);
+    }
+  });
+
+  document.addEventListener("keyup", (event) => {
+    if (event.key === "Shift") {
+      setShiftPressed(false);
+    }
+  });
 
   function sslCheck(): void {
     if (
@@ -52,10 +75,13 @@ export const SidebarComponent: React.FC = () => {
       window.electron.ipcRenderer.send(
         "skynet://application:browser/funcions/sslInfo",
       );
-      console.log("ativou!");
-      updateSSLAlert(true);
+      setShieldStyle(ShieldStates.unsecure)
+    } else if (
+      searchValue.startsWith("https://") ||
+      searchValue.startsWith("skynet://")
+    ) {
+      setShieldStyle(ShieldStates.onFocus)
     } else {
-      console.log("ssl n verificado");
       reloadSSLCheck();
     }
   }
@@ -68,7 +94,6 @@ export const SidebarComponent: React.FC = () => {
   }
 
   function requestSkynetProtection() {
-    // eslint-disable-next-line prettier/prettier
     const skynetPortal = {
       poweredBy: "Skyrus Labz",
       copyright: "Skyrus LTDA.",
@@ -93,12 +118,15 @@ export const SidebarComponent: React.FC = () => {
       params,
       code,
     );
+    if (shieldStyle === ShieldStates.onFocus) {
+      setShieldStyle(ShieldStates.standby);
+    } else {
+      setShieldStyle(ShieldStates.onFocus);
+    }
   }
 
   const [searchValue, updateSValue] = useState("");
-  const [isProtected, updateProtection] = useState(false);
   const [hasSSL, updateSSLVerification] = useState(false);
-  const [sslRiscAlert, updateSSLAlert] = useState(false);
 
   useEffect(() => {
     if (searchValue === "/activePRT") {
@@ -114,7 +142,7 @@ export const SidebarComponent: React.FC = () => {
     } else if (
       searchValue === "skynet://application:browser/rpc&send/rpcInfo"
     ) {
-      updateProtection(true);
+      setShieldStyle(ShieldStates.protected)
       window.electron.ipcRenderer.send(
         "skynet://skybrowser:rpc.send/funcions/activeProtection?option=",
         "test",
@@ -125,10 +153,16 @@ export const SidebarComponent: React.FC = () => {
   }, [
     searchValue,
     updateSValue,
-    updateProtection,
     updateSSLVerification,
-    updateSSLAlert,
   ]);
+
+  function handleButtonClick(event: React.MouseEvent<HTMLElement>) {
+    if (event.shiftKey) {
+      window.electron.ipcRenderer.send("skynet://application:browser/funcions/hardReload")
+    } else {
+      // Paginas e Navegação não implementadas ainda
+    }
+  }
 
   return (
     <Sidebar>
@@ -159,15 +193,15 @@ export const SidebarComponent: React.FC = () => {
             <SideBarContent>
               <ArrowBackIcon />
             </SideBarContent>
+            <SideBarContent onClick={(e) => handleButtonClick(e)}>
+              <RefreshIcon className={shiftPressed ? 'hardAction' : ''} />
+            </SideBarContent>
             <SideBarContent>
               <ArrowNextIcon />
             </SideBarContent>
-            <SideBarContent>
-              <RefreshIcon />
-            </SideBarContent>
-            <SideBarContent>
+            {/* <SideBarContent>
               <HomeIcon />
-            </SideBarContent>
+            </SideBarContent> */}
           </WActions>
         </Navigation>
       </NavigationContainer>
@@ -182,8 +216,9 @@ export const SidebarComponent: React.FC = () => {
         >
           <SearchIcon
             className={
-              (isProtected ? "active" : "") +
-              (sslRiscAlert ? "noSSL" : "") +
+              (shieldStyle === ShieldStates.protected ? "active" : "") +
+              (shieldStyle === ShieldStates.unsecure ? "noSSL" : "") +
+              (shieldStyle === ShieldStates.onFocus ? "focus" : "") +
               (hasSSL ? "active" : "")
             }
           />

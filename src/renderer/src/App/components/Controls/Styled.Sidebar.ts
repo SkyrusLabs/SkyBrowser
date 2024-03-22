@@ -161,6 +161,10 @@ export const RefreshIcon: any = styled(ArrowCounterclockwise)`
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
   -webkit-app-region: no-drag;
   cursor: pointer;
+
+  &.hardAction {
+    color: #FF0000
+  }
 `;
 
 export const HomeIcon: any = styled(Home)`
@@ -205,10 +209,8 @@ export const SearchIconConmponent = styled.a`
   background: transparent;
   border: none;
   cursor: pointer;
+  transition: color 0.4s;
 
-  :hover {
-    color: #fff;
-  }
 `;
 
 export const SearchIcon: any = styled(ShieldKeyhole)`
@@ -219,8 +221,13 @@ export const SearchIcon: any = styled(ShieldKeyhole)`
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
   margin-right: 8px;
 
+
   &.active {
     color: #35ff00;
+  }
+
+  &.focus {
+    color: #fff;
   }
 
   &.noSSL {

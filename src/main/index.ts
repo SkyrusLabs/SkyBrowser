@@ -108,6 +108,10 @@ function createWindow(): void {
     mainWindow.setFullScreen(!mainWindow.isFullScreen());
   });
 
+  ipcMain.on("skynet://application:browser/funcions/hardReload", () => {
+    mainWindow.reload();
+  });
+
   ipcMain.on(
     "skynet://application:browser/rpc&send/rpcInfo",
     (_event, params, code) => {

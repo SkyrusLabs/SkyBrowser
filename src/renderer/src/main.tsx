@@ -15,9 +15,9 @@ const renderApp = () => {
   ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
       <BrowserRouter>
-        {isElectron ?
+        { isElectron ?
           <App />
-        : <WebApp />}
+        : <WebApp /> }
       </BrowserRouter>
     </React.StrictMode>,
   );
